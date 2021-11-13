@@ -1,3 +1,4 @@
+// inits workout
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);
@@ -6,6 +7,7 @@ async function initWorkout() {
       .querySelector("a[href='/exercise?']")
       .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
 
+      // creates workout object
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
       totalDuration: lastWorkout.totalDuration,
@@ -13,12 +15,14 @@ async function initWorkout() {
       ...tallyExercises(lastWorkout.exercises)
     };
 
+    // displays the last workout on the homepage
     renderWorkoutSummary(workoutSummary);
   } else {
     renderNoWorkoutText()
   }
 }
 
+// counts the total number of exercises 
 function tallyExercises(exercises) {
   const tallied = exercises.reduce((acc, curr) => {
     if (curr.type === "resistance") {
@@ -33,6 +37,7 @@ function tallyExercises(exercises) {
   return tallied;
 }
 
+// function to format dates to a more readable format
 function formatDate(date) {
   const options = {
     weekday: "long",
@@ -44,6 +49,7 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString(options);
 }
 
+// renders a workout summary on a the homepage 
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
 
@@ -71,6 +77,7 @@ function renderWorkoutSummary(summary) {
   });
 }
 
+// display if no workout has been logged yet.
 function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
   const p = document.createElement("p");

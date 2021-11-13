@@ -21,6 +21,7 @@ function generatePalette() {
   return arr;
 }
 
+// function for creating charts
 function populateChart(data) {
   let durations = data.map(({ totalDuration }) => totalDuration);
   let pounds = calculateTotalWeight(data);
@@ -173,6 +174,7 @@ function populateChart(data) {
   });
 }
 
+// calculates total weight lifted in an exercise
 function calculateTotalWeight(data) {
   let totals = [];
 
@@ -191,6 +193,7 @@ function calculateTotalWeight(data) {
   return totals;
 }
 
+// retrieves workout names
 function workoutNames(data) {
   let workouts = [];
 

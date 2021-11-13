@@ -17,6 +17,7 @@ const newWorkout = document.querySelector(".new-workout")
 let workoutType = null;
 let shouldNavigateAway = false;
 
+// inits a exercise
 async function initExercise() {
   let workout;
 
@@ -29,9 +30,9 @@ async function initExercise() {
   }
 
 }
-
 initExercise();
 
+// handles workout type
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
@@ -49,6 +50,7 @@ function handleWorkoutTypeChange(event) {
   validateInputs();
 }
 
+// validates and formats inputs
 function validateInputs() {
   let isValid = true;
 
@@ -95,6 +97,7 @@ function validateInputs() {
   }
 }
 
+// handles form submissions
 async function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -119,6 +122,7 @@ async function handleFormSubmit(event) {
   toast.classList.add("success");
 }
 
+// handles toast animation
 function handleToastAnimationEnd() {
   toast.removeAttribute("class");
   if (shouldNavigateAway) {
@@ -126,6 +130,7 @@ function handleToastAnimationEnd() {
   }
 }
 
+// clears inputs on form fields
 function clearInputs() {
   cardioNameInput.value = "";
   nameInput.value = "";
