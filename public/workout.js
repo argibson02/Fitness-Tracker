@@ -29,8 +29,10 @@ function tallyExercises(exercises) {
       acc.totalWeight = (acc.totalWeight || 0) + curr.weight;
       acc.totalSets = (acc.totalSets || 0) + curr.sets;
       acc.totalReps = (acc.totalReps || 0) + curr.reps;
+      acc.totalDuration = (acc.totalDuration || 0) + curr.duration;
     } else if (curr.type === "cardio") {
       acc.totalDistance = (acc.totalDistance || 0) + curr.distance;
+      acc.totalDuration = (acc.totalDuration || 0) + curr.duration;
     }
     return acc;
   }, {});
@@ -55,12 +57,12 @@ function renderWorkoutSummary(summary) {
 
   const workoutKeyMap = {
     date: "Date",
-    totalDuration: "Total Workout Duration",
+    totalDuration: "Total Workout Duration (minutes)",
     numExercises: "Exercises Performed",
-    totalWeight: "Total Weight Lifted",
+    totalWeight: "Total Weight Lifted (lbs)",
     totalSets: "Total Sets Performed",
     totalReps: "Total Reps Performed",
-    totalDistance: "Total Distance Covered"
+    totalDistance: "Total Distance Covered (miles)"
   };
 
   Object.keys(summary).forEach(key => {

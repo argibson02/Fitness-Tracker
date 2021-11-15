@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Workout = require("../models/workouts");
-const mongojs = require("mongojs");
 
 // Finds all workouts
 router.get('/api/workouts', (req, res) => {
@@ -16,9 +15,10 @@ router.get('/api/workouts', (req, res) => {
 
 // add a workout to an exercise
 router.put("/api/workouts/:id", ({ params, body }, res) => {
+    console.log(params.id);
     Workout.updateOne(
         {
-            _id: mongojs.ObjectId(params.id)
+            _id: params.id
         },
         {
             $push: {
@@ -50,7 +50,7 @@ router.post("/api/workouts", ({ body }, res) => {
 
 // retrieves workout ranges
 router.get('/api/workouts/range', (req, res) => {
-    Workout.find({}).sort({ date: -1 })
+    Workout.find({})
         .then(dbWorkouts => {
             res.json(dbWorkouts);
         })
