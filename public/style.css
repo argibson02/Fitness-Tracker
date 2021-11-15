@@ -17,12 +17,16 @@ body {
 }
 
 nav {
-  background-color: #5793fd;
+  background-color: #583fc9;
   color: #ffffff;
   height: 80px;
   padding: 10px;
   line-height: 3;
   font-size: 1.2rem;
+}
+
+nav a {
+  margin-right: 10px;
 }
 
 a,

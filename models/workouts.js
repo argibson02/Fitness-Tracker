@@ -20,23 +20,28 @@ const workoutSchema = new Schema({
         },
         duration: {
             type: Number,
-            required: "Please enter a duration for your exercise."
+            required: "Please enter a duration for your exercise.",
+            validate: [({ VALUE }) => VALUE >= 0, "Must be a positive number."]
             // Resistance & Cardio
         },
         distance: {
-            type: Number
+            type: Number,
+            validate: [({ VALUE }) => VALUE >= 0, "Must be a positive number."]
             // Cardio
         },
         weight: {
-            type: Number
+            type: Number,
+            validate: [({ VALUE }) => VALUE >= 0, "Must be a positive number."]
             // Resistance
         },
         reps: {
-            type: Number
+            type: Number,
+            validate: [({ VALUE }) => VALUE >= 0, "Must be a positive number."]
             // Resistance
         },
         sets: {
-            type: Number
+            type: Number,
+            validate: [({ VALUE }) => VALUE >= 0, "Must be a positive number."]
             // Resistance
         }
     }]
