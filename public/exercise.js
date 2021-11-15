@@ -147,7 +147,7 @@ if (workoutTypeSelect) {
 if (completeButton) {
   completeButton.addEventListener("click", function (event) {
     event.preventDefault();
-    shouldNavigateAway = true;
+    document.location.replace('/');
   });
 }
 if (addButton) {
