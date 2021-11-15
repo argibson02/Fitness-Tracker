@@ -59,15 +59,15 @@ function validateInputs() {
       isValid = false;
     }
 
-    if (weightInput.value.trim() === "") {
+    if (weightInput.value.trim() === "" || repsInput.value < 0) {
       isValid = false;
     }
 
-    if (setsInput.value.trim() === "") {
+    if (setsInput.value.trim() === "" || repsInput.value < 0) {
       isValid = false;
     }
 
-    if (repsInput.value.trim() === "") {
+    if (repsInput.value.trim() === "" || repsInput.value < 0) {
       isValid = false;
     }
 
@@ -79,20 +79,18 @@ function validateInputs() {
       isValid = false;
     }
 
-    if (durationInput.value.trim() === "") {
+    if (durationInput.value.trim() === "" || repsInput.value < 0) {
       isValid = false;
     }
 
-    if (distanceInput.value.trim() === "") {
+    if (distanceInput.value.trim() === "" || repsInput.value < 0) {
       isValid = false;
     }
   }
 
   if (isValid) {
-    completeButton.removeAttribute("disabled");
     addButton.removeAttribute("disabled");
   } else {
-    completeButton.setAttribute("disabled", true);
     addButton.setAttribute("disabled", true);
   }
 }
@@ -119,6 +117,7 @@ async function handleFormSubmit(event) {
 
   await API.addExercise(workoutData);
   clearInputs();
+  addButton.setAttribute("disabled", true);
   toast.classList.add("success");
 }
 
@@ -147,8 +146,8 @@ if (workoutTypeSelect) {
 }
 if (completeButton) {
   completeButton.addEventListener("click", function (event) {
+    event.preventDefault();
     shouldNavigateAway = true;
-    handleFormSubmit(event);
   });
 }
 if (addButton) {

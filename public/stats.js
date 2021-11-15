@@ -193,7 +193,7 @@ function calculateTotalWeight(data) {
   return totals;
 }
 
-// calculates total weight lifted in an exercise
+// calculates total exercise duration
 function calculateTotalDuration(data) {
   let totals = [];
 
