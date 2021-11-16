@@ -15,7 +15,8 @@ This is a Fitness Tracker webapp built with MongoDB, Express.js, and Node.js.
 
 Features:
 * Track both cardio and weight workouts.
-* 
+* Chart you workout trends in the Workout Stats Dashboard.
+* See cumulative totals of weight lifted, distance ran, and exercise durations.
 
 **[Click this link to go to the Fitness Tracker](https://ancient-scrubland-94310.herokuapp.com/)**.
 
@@ -36,8 +37,7 @@ Any modern internet browser will do! Just navigate to **[the webpage](https://an
 * [Node.js](https://nodejs.org/en/)
 * [Express.js](https://expressjs.com/)
 * [MongoDB](https://www.mongodb.com/)
-* [Dotenv](https://www.npmjs.com/package/dotenv)
-
+* [Mongoose](https://www.npmjs.com/package/mongoose)
 
 ## Technologies Used
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/)
