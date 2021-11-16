@@ -59,11 +59,11 @@ function validateInputs() {
       isValid = false;
     }
 
-    if (weightInput.value.trim() === "" || repsInput.value < 0) {
+    if (weightInput.value.trim() === "" || weightInput.value < 0) {
       isValid = false;
     }
 
-    if (setsInput.value.trim() === "" || repsInput.value < 0) {
+    if (setsInput.value.trim() === "" || setsInput.value < 0) {
       isValid = false;
     }
 
@@ -71,7 +71,7 @@ function validateInputs() {
       isValid = false;
     }
 
-    if (resistanceDurationInput.value.trim() === "") {
+    if (resistanceDurationInput.value.trim() === "" || resistanceDurationInput.value < 0) {
       isValid = false;
     }
   } else if (workoutType === "cardio") {
@@ -79,14 +79,16 @@ function validateInputs() {
       isValid = false;
     }
 
-    if (durationInput.value.trim() === "" || repsInput.value < 0) {
+    if (durationInput.value.trim() === "" || durationInput.value < 0) {
       isValid = false;
     }
 
-    if (distanceInput.value.trim() === "" || repsInput.value < 0) {
+    if (distanceInput.value.trim() === "" || distanceInput.value < 0) {
       isValid = false;
     }
   }
+
+  console.log(repsInput.value);
 
   if (isValid) {
     addButton.removeAttribute("disabled");
