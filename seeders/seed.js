@@ -1,9 +1,11 @@
 let mongoose = require("mongoose");
 let Workout = require("../models/workouts");
 
-mongoose.connect("mongodb://localhost/fitness", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true
 });
 
 let workoutSeed = [
